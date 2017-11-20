@@ -41,6 +41,6 @@ optgroup{font-weight:bold}
 table{border-collapse:collapse;border-spacing:0}
 td,th{padding:0}
 html {width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; }
-body {width: 100%; min-height: 100%; }
+body {width: 100%; min-height: 100%; font-size: 14px}
 
 .c-9{color: #999}
