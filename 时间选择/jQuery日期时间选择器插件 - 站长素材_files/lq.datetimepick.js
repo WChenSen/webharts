@@ -111,6 +111,7 @@ $.fn.lqdatetimepicker = function (options) {
         _container.appendTo(_obj);
         _item.appendTo(_container);
         _obj.appendTo("body").show();
+        console.log($('#data-active').html(_dateyear+"-"+_datemonth+"-"+_datedate))
         // _obj.appendTo("body").css({
         //     left : _x + 'px',
         //     top : _y  + 'px'
@@ -152,6 +153,12 @@ $.fn.lqdatetimepicker = function (options) {
             }
         });
 
+        $('#lq-date-cancel').on("click",function(){
+            if(lq_datetimepick){
+                _obj.remove();
+            }
+        })
+
     })
 
 };
@@ -169,19 +176,16 @@ $.fn.lqdatetimepicker.setDateData = function($this,_obj,_item,_this){
             _time.on("click",function(){
                 if($(this).hasClass('blank')){return false}
 
-                $this.val($(this).attr("data-value"));
+                // $this.val($(this).attr("data-value"));
+            
                 $('#data-active').html($(this).attr("data-value"));
                 // _obj.remove();
                 _this.selectback($(this).attr("data-value"));
                 // console.log($(this))
-                _obj.find('.current').removeClass('current');
+                $(this).parent().find('.current').removeClass('current');
                 $(this).addClass('current');
             });
-            _time.hover(function(){
-                $(this).addClass('over');
-            },function(){
-                $(this).removeClass('over');
-            });
+           
             if($this.val() == _datetime[i]){
                 _time.addClass('selected')
             }
