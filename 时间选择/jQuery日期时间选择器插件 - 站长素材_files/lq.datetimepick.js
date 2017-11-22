@@ -39,7 +39,6 @@ $.fn.lqdatetimepicker = function (options) {
 
         var _obj = $("<div class=\"lq-datetimepick\" id=\"lq-datetimepick\" />");
         var data_header = $("<div class=\"datetime-header\" />");
-        var data_header_c = " <div class='datetime-header-l'><span id='data-active'>2015-5-20</span>数据</div> <div class='datetime-header-r'><span id='lq-date-ack'>确定</span><span id='lq-date-cancel'>取消</span> </div>";
         var _container = $("<div class=\"select-datetime\" />");
         var _selectitem = $("<div class=\"datetime-select\" />");
         var _header = $("<dl class=\"datetime-time\"></dl>");
@@ -52,13 +51,6 @@ $.fn.lqdatetimepicker = function (options) {
         var _dateyear = _datevalue.getFullYear();
         var _datemonth = _datevalue.getMonth()+1;
         var _datedate = _datevalue.getDate();
-
-        console.log(_datevalue)
-        console.log(_dateyear)
-        console.log(_datemonth)
-        console.log(_datedate)
-        // var _x = $this.offset().left + _this.offset.left,
-        //     _y = $this.offset().top + $this.outerHeight() + _this.offset.top;
 
         if(_this.css != undefined || _this.css != ''){
             _header.addClass(_this.css);
@@ -106,12 +98,10 @@ $.fn.lqdatetimepicker = function (options) {
             }
             _header.appendTo(_container);
         }
-        data_header.html(data_header_c);
         data_header.appendTo(_obj);
         _container.appendTo(_obj);
         _item.appendTo(_container);
         _obj.appendTo("body").show();
-        console.log($('#data-active').html(_dateyear+"-"+_datemonth+"-"+_datedate))
         // _obj.appendTo("body").css({
         //     left : _x + 'px',
         //     top : _y  + 'px'
@@ -124,7 +114,8 @@ $.fn.lqdatetimepicker = function (options) {
             pulldown:function(){
                 var _year = $("#selectYear").val();
                 var _month = $("#selectMonth").val();
-                var _day = $(".datetime-time>dd.selected").attr("data-value");
+                // var _day = $(".datetime-time>dd.selected").attr("data-value");
+                 var _day = 1;
                 _day = _day==undefined ? _this.date.D.selected : _day;
                 _this.date.D.month = new Date(_year+'/'+_month+'/'+_day);
                 $.fn.lqdatetimepicker.setDateData($this,_obj,_item,_this);
@@ -136,7 +127,7 @@ $.fn.lqdatetimepicker = function (options) {
             pulldown:function(){
                 var _year = $("#selectYear").val();
                 var _month = $("#selectMonth").val();
-                var _day = $(".datetime-time>dd.selected").attr("data-value");
+                var _day = 1;
                 _day = _day==undefined ? _this.date.D.selected : _day;
                 _this.date.D.month = new Date(_year+'/'+_month+'/'+_day);
                 $.fn.lqdatetimepicker.setDateData($this,_obj,_item,_this);
@@ -166,6 +157,7 @@ $.fn.lqdatetimepicker = function (options) {
 $.fn.lqdatetimepicker.setDateData = function($this,_obj,_item,_this){
     var _time;
     var _datetime = $.fn.lqdatetimepicker.setDateTime(_this);
+    // console.log(_datetime)
     if (typeof(_datetime) == 'object'){
         _item.empty();
         for (var i=0; i<_datetime.length; i++){
@@ -199,7 +191,7 @@ $.fn.lqdatetimepicker.setDateData = function($this,_obj,_item,_this){
                 _time.addClass('blank');
             }
             if(new Date(_time.attr('data-value')) > new Date()){
-                _time.addClass('blank');
+                _time.addClass('blank beyond');
             }
             _time.appendTo(_item);
         }
@@ -396,7 +388,13 @@ LQ.selectUi={
         
         var items=0;
         for(var i=0; i<sel.children("option").length; i++){
-            html+="<li data-val="+sel.children("option").eq(i).val()+">"+sel.children("option").eq(i).html()+"</li>";
+            if(i==0){
+                var li = "<li class='current' data-val=";
+            }else{
+                var li = "<li data-val=";
+            }
+            
+            html+=li+sel.children("option").eq(i).val()+">"+sel.children("option").eq(i).html()+"</li>";
             items++;
             
         }

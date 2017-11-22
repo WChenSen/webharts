@@ -47,9 +47,10 @@ body {width: 100%; min-height: 100%; font-size: 14px;color: #333;background-colo
 .float_right{float: right;}
 .float_left{float: left;}
 .clearfix:after {content:""; display: block; clear:both; }
+.c-green{color:rgba(102, 204, 153, 1) !important;}
 
 .global-table{}
-.btn{width:220px;height: 60px;line-height: 60px;text-align: center;display: inline-block;vertical-align: top;color: #fff;font-size: 16px;cursor: pointer}
+.btn{width:180px;height: 60px;line-height: 60px;text-align: center;display: inline-block;vertical-align: top;color: #fff;font-size: 16px;cursor: pointer}
 .btn-greed{background-color: rgba(102, 204, 153, 1);}
 .btn-blue{background-color: rgba(38, 166, 234, 0.898039215686275);}
 .btn-cancel{background-color: rgba(238, 238, 238, 1);color: #999999 }
