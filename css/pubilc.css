@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+
 html{font-family:"Microsoft YaHei UI","Microsoft YaHei",sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
 html,body,div,object,iframe,applet,object,h1,h2,h3,h4,h5,h6,p,blockquote,pre,address,dl,dt,dd,ol,ul,li,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,menu,nav,output,ruby,section,summary,time,mark,audio,video,progress{margin:0;padding:0;border:0;vertical-align:baseline}
 li{list-style:none}
@@ -7,7 +8,7 @@ article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summ
 audio,canvas,progress,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
-a{background-color:transparent;text-decoration:none}
+a{background-color:transparent;text-decoration:none;color: inherit}
 a:active,a:hover{outline:0}
 abbr[title]{border-bottom:1px dotted}
 b,strong{font-weight:bold}
@@ -40,6 +41,7 @@ textarea{overflow:auto}
 optgroup{font-weight:bold}
 table{border-collapse:collapse;border-spacing:0}
 td,th{padding:0}
+i,em{font-style: normal;}
 html {width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; }
 body {width: 100%; min-height: 100%; font-size: 14px;color: #333;background-color: rgba(248, 248, 248, 0.898039215686275);}
 
@@ -50,6 +52,7 @@ body {width: 100%; min-height: 100%; font-size: 14px;color: #333;background-colo
 .c-green{color:rgba(102, 204, 153, 1) !important;}
 
 .global-table{}
+.global-table a~a{margin-left: 20px}
 .btn{width:180px;height: 60px;line-height: 60px;text-align: center;display: inline-block;vertical-align: top;color: #fff;font-size: 16px;cursor: pointer}
 .btn-greed{background-color: rgba(102, 204, 153, 1);}
 .btn-blue{background-color: rgba(38, 166, 234, 0.898039215686275);}
@@ -57,16 +60,32 @@ body {width: 100%; min-height: 100%; font-size: 14px;color: #333;background-colo
 table{width: 100%;text-align: center;}
 thead{background-color: rgba(238, 238, 238, 1);color: #999999;font-size: 16px;}
 thead th{font-weight: normal;}
-th,td{padding: 20px 0; }
+th,td{padding: 20px 0;font-size: 16px }
 tbody{background: #fff}
 tbody tr{border-bottom: 1px solid #eee;}
 td{color: #666}
 
+
 .mask{position: fixed;left: 0;right: 0;bottom: 0;top: 0;background-color: rgba(0, 0, 0, 0.2);}
-.dialog-cover{width: 1065px;height: 585px;background: #fff;position: absolute;text-align: center; width: 1065px; height: 585px; background: #fff; position: absolute; text-align: center; left: 50%; top: 50%;
-transform: translate(-50%,-50%);}
+/*覆盖提醒*/
+.dialog{position: absolute;left: 50%; top: 50%;transform: translate(-50%,-50%);}
+.dialog-cover{width: 1065px;height: 585px;background: #fff;text-align: center; width: 1065px; height: 585px; }
 .dialog-cover .head{font-weight: 600; font-style: normal; font-size: 30px;margin-top: 72px; margin-bottom: 30px;}
 .dialog-cover .content{color: #999999;font-weight: 600;font-size: 20px;}
 .dialog-cover .footer{margin-top: 200px}
 .dialog-cover  .btn{width: 280px; height: 90px; line-height: 90px;font-size: 20px;} 
 .dialog-cover .btn-cancel{margin-left:150px;}
+
+.page-header{font-size: 20px;color: #999;font-weight: 600;}
+.today-page .page-header{padding: 40px 50px 30px;line-height: 60px}
+.bygone-page .page-header{padding: 0 35px ;}
+.bygone-page .page-header_title {padding: 20px 0;}
+.bygone-page li:nth-child(2){margin-top: 30px}
+.filestyle{position: relative;}
+.filestyle input{position: absolute; width: 100%; height: 100%; left: 0; top: 0; opacity: 0; z-index: 1; cursor: pointer;　filter:alpha(opacity=0);}
+.upload_file{margin-top: 30px}
+
+
+
+.account-page .page-header{padding: 20px 40px}
+

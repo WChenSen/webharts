@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test</title>
+    <meta name="description" content="test" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <link rel="stylesheet" type="text/css" href="css/pubilc.css">
+    <link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/lq.datetimepick.js"></script>
+</head>
+<body>
+<style type="text/css">
+.dialog-account{width: 696px;font-size: 20px;color: #999999;}
+.dialog-account header{height: 68px;line-height:68px;background-color: rgba(238, 238, 238, 1);}
+.dialog-account .content{padding: 54px 76px}
+</style>
+    <div class="account-page">
+            <div class="page-header clearfix ">
+                <div class="page-header_title clearfix">
+                    <div class="header-text float_left">账号管理</div>
+                    <div class="btn btn-greed float_right ">
+                        <span>新建账号</span>
+                    </div>
+                </div>
+            </div>
+            <div class="global-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>账号属性</th>
+                            <th>账号名</th>
+                            <th>密码</th>
+                            <th>操作</th>
+  
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <tr>    
+                            <td>超级管理员</td>
+                            <td>admin</td>
+                            <td>1111111</td>
+                            <td><a href="javascript:;">修改密码</a></td>
+                        </tr>
+                        <tr>    
+                            <td>超级管理员</td>
+                            <td>admin</td>
+                            <td>1111111</td>
+                            <td><a href="javascript:;">修改密码</a><a href="javascript:;">删除账号</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+<div class="dialog dialog-account">
+    <header>新建账号</header>
+    <div class="content">
+        <ul>
+            <li>
+                <div>账号属性</div>
+                <div>
+                    <p><input id="status_1" name="status" type="text"><label for="status_1"><input id="status_2" name="status" type="text"></label><label for=" status_2"></label></p>
+                    <p class="c-green">属性为老板的账号拥有登录手机版查看全局数据与登录PC更改上传数据的权限</p>
+                    <p class="c-green">属性为操作员的账号拥有登录PC端进行数据上传/更改的权限（更改权限只能更改自己上传的数据）</p>
+                </div>
+            </li>
+            <li>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

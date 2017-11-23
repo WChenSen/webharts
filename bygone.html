@@ -9,31 +9,162 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <link rel="stylesheet" type="text/css" href="css/pubilc.css">
+    <link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/lq.datetimepick.js"></script>
 </head>
 <body>
 <style type="text/css">
-/*	.today-page .header{font-size: 20px;color: #999;font-weight: 600;padding: 40px 50px 30px;line-height: 60px}
-	.filestyle{position: relative;}
-	.filestyle input{position: absolute; width: 100%; height: 100%; left: 0; top: 0; opacity: 0; z-index: 1; cursor: pointer;　filter:alpha(opacity=0);}
-	.upload_file{padding: 0 50px;margin-bottom: 30px}*/
-	.top-time{height: 90px; border-bottom: 1px solid #eee; overflow: hidden; margin: 0 35px }
-	.header-l{float: left; font-weight: 600; font-size: 20px; margin-top: 30px;}
-	.header-r,.time-show{float: right; font-size: 16px; margin-top: 20px;}
-	.header-r > .btn{display: inline-block; cursor: pointer; height: 48px; width: 98px; line-height: 48px; text-align: center; border: 1px solid; color: rgba(102, 204, 153, 1);}
-	.header-r > .btn:nth-child(3){margin-left: 20px}
-	.time-show{border:1px solid;}
+	/*.bygone-page*/
+	.top-time{height: 90px; border-bottom: 1px solid #eee; overflow: hidden;  }
+	.top-time_l{float: left; font-weight: 600; margin-top: 30px;color: #333}
+	.top-time_r,.datetimepicker{float: right; font-size: 16px; margin-top: 20px;}
+	.top-time_r > .btn{display: inline-block; cursor: pointer; height: 48px; width: 98px; line-height: 48px; text-align: center; border: 1px solid; color: rgba(102, 204, 153, 1);}
+	.top-time_r > .btn:nth-child(3){margin-left: 20px}
+	.datetimepicker{border:1px solid;}
+	.bygone-page .btn{height: 48px;line-height: 48px}
+	.datetimehide{margin-left:20px;}
+	.mask{top: 90px}
 </style>
-	<div class="bygone-page">
-		<header class="top-time">
-			<div class="header-l">
-				<span id="date-time">2017-11-19</span>数据
+	<ul class="bygone-page page">
+		<li>
+			<div class="page-header clearfix ">
+				<div class="top-time">
+					<div class="top-time_l">
+						<span id="date-time">2017-11-19</span>数据
+					</div>
+					<div class="btn c-green  datetimepicker" id="datetimepicker">数据时间切换</div>
+					<div class="top-time_r" style="display: none">
+						<span class="btn c-green" id="datetimeDetermine">确定</span>
+						<span class="btn c-green datetimehide" id="datetimehide">取消</span>
+					</div>
+				</div>
+				<div class="page-header_title clearfix">
+					<div class="header-text float_left">2017-11-19购书抵押金-汇总</div>
+					<div class="btn btn-blue float_right filestyle" >
+						<span>新EXCAL整理</span>
+						<input type="file">
+					</div>
+				</div>
 			</div>
-			<div class="btn c-green bg-white  time-show">数据时间切换</div>
-			<div class="header-r" style="display: none">
-				<span class="btn btn-">确定</span>
-				<span class="btn btn-">取消</span>
+			<div class="global-table">
+				<table>
+					<thead>
+						<tr>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+						</tr>
+					</thead>
+					<tbody>	
+						<tr>	
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-		</header>
-	</div>
+		</li>
+		<li>
+			<div class="page-header clearfix ">
+				<div class="page-header_title clearfix">
+					<div class="header-text float_left">2017-11-19购书抵押金-销售明细</div>
+					<div class="btn btn-blue float_right filestyle" >
+						<span>新EXCAL整理</span>
+						<input type="file">
+					</div>
+				</div>
+			</div>
+			<div class="global-table">
+				<table>
+					<thead>
+						<tr>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+							<th>收款方式编号</th>
+						</tr>
+					</thead>
+					<tbody>	
+						<tr>	
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+							<td>0001</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</li>
+	</ul>
+<script type="text/javascript">
+	$("#datetimepicker").on("click",function(e){
+		show_datetimepicker();
+		change_mask();
+		$(this).lqdatetimepicker({
+			css : 'datetime-day',
+			dateType : 'D',
+			callback : function(){
+				
+				// 取消
+				$('#datetimehide').bind('click',function(){
+					show_datetimepicker();			
+					change_mask();
+					$('#lq-datetimepick').remove();
+					$(this).unbind('click');
+				})
+
+				// 确定
+				$('#datetimeDetermine').bind('click',function(){
+					var date = $('.datetime-day .current').attr('data-value');
+					$('#date-time').html(date);
+					
+					$('#datetimehide').click();
+
+				})
+
+			},
+			selectback : function(data){
+				// console.log(data)
+				// console.log(new Date(data))
+			}
+		});
+	});
+
+	function change_mask(){
+		var mask = $('.mask');
+		if(mask.length){
+			mask.remove();
+		}else{
+			mask = $('<div class="mask"></div>');
+			$('body').append(mask); 
+		}
+	}
+
+	function show_datetimepicker(){
+		var datetimepicker = $('#datetimepicker');
+		var top_time_r = $('.top-time_r');
+		if(datetimepicker.is(":hidden")){
+			datetimepicker.show();
+			top_time_r.hide();
+		}else{
+			datetimepicker.hide();
+			top_time_r.show();
+		}
+	}
+</script>
+
+
 </body>
 </html>
