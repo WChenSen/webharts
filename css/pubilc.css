@@ -68,8 +68,8 @@ td{color: #666}
 
 .mask{position: fixed;left: 0;right: 0;bottom: 0;top: 0;background-color: rgba(0, 0, 0, 0.2);}
 /*覆盖提醒*/
-.dialog{position: absolute;left: 50%; top: 50%;transform: translate(-50%,-50%);}
-.dialog-cover{width: 1065px;height: 585px;background: #fff;text-align: center; width: 1065px; height: 585px; }
+.dialog{position: fixed;z-index: 9;;left: 50%; top: 50%;transform: translate(-50%,-50%);background: #fff}
+.dialog-cover{width: 1065px;height: 585px;text-align: center; width: 1065px; height: 585px; }
 .dialog-cover .head{font-weight: 600; font-style: normal; font-size: 30px;margin-top: 72px; margin-bottom: 30px;}
 .dialog-cover .content{color: #999999;font-weight: 600;font-size: 20px;}
 .dialog-cover .footer{margin-top: 200px}
