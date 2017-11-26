@@ -1,0 +1,144 @@
+<html>
+<head>
+<meta name="Generator" content="ECSHOP v2.7.3" />
+<meta charset="utf-8" />
+	<title>web</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<style type="text/css">
+		body{background-color: #212639;color: #fff;padding-top: 200px}
+		.clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+		.global-flex{display:-webkit-box;display:-webkit-flex;display:flex}
+		.global-flex_item{-webkit-box:1;-webkit-flex:1;flex: 1}
+		.nav{position: fixed;top: 0;left: 0;width: 100%;text-align: center;background-color: rgba(0, 0, 0, 1)}
+		.nav li{font-size: .16rem;height: .44rem;line-height: .44rem;color: #999}
+		.nav li.active{color: #fff;position: relative;}
+		.nav li.active:after{content: ""; position: absolute; bottom: 0; width: 100%; height: .01rem; background: #fff; left: 0;}
+
+
+		/*详情*/
+		.details,.grids{background: #323C48}
+
+		.details-header{height: .5rem;line-height: .5rem;border-bottom: 1px solid #999;margin: 0 .1rem}
+		.details-header_text{float: left;}
+		.details-header_nav{float: right;text-align: center;}
+		.details-header_nav li{width: .6rem;float: left;color: #999;position: relative;}
+		.details-header_nav li.active{color: rgb(250, 158, 35);}
+		.details-header_nav li.active:after{content: ""; position: absolute; bottom: -.01rem; width: 100%; height: .02rem; background: rgb(250, 158, 35); left: 0;}
+		.details-content .info{position: relative;height: .73rem;display:-webkit-box;display:-webkit-flex;display:flex;align-items: center;padding: 0 .1rem}
+		.details-content .info+.info:after{content: " "; position: absolute; left: 0; top: 0; right: 0; height: 1px; border-top: 1px solid #212639;  -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleY(0.5); transform: scaleY(0.5); left: 0; z-index: 2;}
+		.details-content .info-left{-webkit-box:1;-webkit-flex:1;flex: 1}
+		.details-content .info-left p+p{margin-top: .1rem}
+		.details-content .info-price{font-size: .21rem;font-weight: 700;position: relative;padding-right: .3rem}
+		.details-content .info-price:after{content: " "; height: .1rem; width: .1rem; border-width: .01rem .01rem 0 0; border-color: #fff; border-style: solid; position: absolute; right: .05rem; top: 50%; -webkit-transform: translateY(-50%) rotate(45deg); transform: translateY(-50%) rotate(45deg);}
+		.details-content_c a{margin-top: .01rem}
+
+		/*金额*/
+		.grids{text-align: center;margin:.2rem 0}
+		.grids li{width: 50%;float: left;padding: .15rem 0;position: relative;}
+		.grids li:nth-child(2n):after{content: " "; position: absolute; bottom: 0; top: 0;left: 0;  height: 200%; width: .01rem; background: #212639; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleY(0.5); transform: scaleY(0.5);  z-index: 2;}
+		.grids li:nth-child(1):before,.grids li:nth-child(2):before{content: " "; position: absolute; bottom: 0; left: 0; height: .01rem; width: 200%; background: #212639; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleY(0.5); transform: scaleY(0.5); z-index: 2;}
+		.grids-title{}
+		.grids-price{font-size: .2rem;margin:.1rem 0;}
+		.grids-sales{font-size: .12rem;color: #999}
+		
+		/*总计*/
+		.total{text-align: center;margin-top: .3rem}
+		.total-title{font-size: .16rem}
+		.total-price{font-size: .34rem;margin: .1rem 0;}
+		.total-sales{color: #999}
+
+
+		/**/
+		.content{background: url(images/book.jpg) no-repeat center;background-size: cover;}
+		.content_c{background-color: rgba(60,51,70,.9);padding-top: .15rem}
+		.content-top{padding:0 .15rem;align-items: center;}
+		.change-date{border: 1px solid; padding: .02rem .06rem; border-radius: .2rem;}
+	</style>
+	<div class="page">
+		<ul class="nav global-flex">
+			<li class="global-flex_item active">收入</li>
+			<li class="global-flex_item">支出</li>
+			<li class="global-flex_item">毛利</li>
+			<li class="global-flex_item">码洋</li>
+		</ul>
+
+		<div class="content">
+			<div class="content_c">
+				<div class="content-top clearfix global-flex">
+					<span class="global-flex_item">截止2017/10/27成本情况</span>
+					<span class="change-date">切换时间</span>
+				</div>
+				<div class="total">
+					<p class="total-title">累计成本总金额（元）</p>
+					<p class="total-price">591,090.00</p>
+					<p class="total-sales">总销量5000 平均单商品成本118.2元</p>
+				</div>
+
+				<div class="">
+
+				</div>
+			</div>
+		</div>
+
+		<ul class="grids clearfix">
+			<li>
+				<p class="grids-title">现金-成本（元）</p>
+				<p class="grids-price">190,500.00</p>
+				<p class="grids-sales">售出4000件商品</p>
+			</li>
+			<li>
+				<p class="grids-title">汇款-毛利（元）</p>
+				<p class="grids-price">190,500.00</p>
+				<p class="grids-sales">售出4000件商品</p>
+			</li>
+			<li>
+				<p class="grids-title">支付宝-毛利（元）</p>
+				<p class="grids-price">190,500.00</p>
+				<p class="grids-sales">售出4000件商品</p>
+			</li>
+			<li>
+				<p class="grids-title">微信-毛利（元）</p>
+				<p class="grids-price">190,500.00</p>
+				<p class="grids-sales">售出4000件商品</p>
+			</li>
+		</ul>
+
+		<div class="details ">
+			<div class="details-header clearfix">
+				<div class="details-header_text">截止时间<span class="date">2017-10-27</span></div>
+				<ul class="details-header_nav">
+					<li class="active">简表</li>
+					<li>详表</li>
+				</ul>
+			</div>
+			<div class="details-content">
+				<div class="details-content_c">
+					<a href="" class="info">
+						<div class="info-left">
+							<p class="title">2017-10-27售出码洋额</p>
+							<p>售出3200件商品</p>
+						</div>
+						<p class="info-price">￥29.000.00</p>
+					</a>
+					<a href="" class="info">
+						<div class="info-left">
+							<p class="title">2017-10-27售出码洋额</p>
+							<p>售出3200件商品</p>
+						</div>
+						<p class="info-price">￥29.000.00</p>
+					</a>
+				</div>
+				<div class="details-content_c ">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
