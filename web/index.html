@@ -8,19 +8,27 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="format-detection" content="telephone=no" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 </head>
 <body>
 	<style type="text/css">
-		body{background-color: #212639;color: #fff;padding-top: 200px}
+		.page,body,html {width: calc(100vw); height: calc(100vh); overflow: hidden; position: relative;}
+		body{background-color: #212639;color: #fff;}
+		table {border-collapse: collapse; border-spacing: 0; }
+		.c-3{color: #333}
+		.c-6{color: #666}
+		.c-9{color: #999}
 		.clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 		.global-flex{display:-webkit-box;display:-webkit-flex;display:flex}
 		.global-flex_item{-webkit-box:1;-webkit-flex:1;flex: 1}
-		.nav{position: fixed;top: 0;left: 0;width: 100%;text-align: center;background-color: rgba(0, 0, 0, 1)}
-		.nav li{font-size: .16rem;height: .44rem;line-height: .44rem;color: #999}
-		.nav li.active{color: #fff;position: relative;}
-		.nav li.active:after{content: ""; position: absolute; bottom: 0; width: 100%; height: .01rem; background: #fff; left: 0;}
+		.topnav{text-align: center;background-color: rgba(0, 0, 0, 1)}
+		.topnav li{font-size: .16rem;height: .44rem;line-height: .44rem;color: #999}
+		.topnav li.active{color: #fff;position: relative;}
+		.topnav li.active:after{content: ""; position: absolute; bottom: 0; width: 100%; height: .01rem; background: #fff; left: 0;}
 
-
+		.top-contents{height: calc(100vh - .44rem);position: relative;overflow: hidden;}
+		.top-content_list{z-index: 1;position: absolute;top: 0;left: 0;height: 100%;width: 100%;overflow-y: auto;overflow-x: hidden;transition-duration: .3s;-webkit-overflow-scrolling: touch;}
+		.translateX-100{transform:translateX(100%) translateZ(0);text-align: center}
 		/*详情*/
 		.details,.grids{background: #323C48}
 
@@ -61,84 +69,291 @@
 		.change-date{border: 1px solid; padding: .02rem .06rem; border-radius: .2rem;}
 	</style>
 	<div class="page">
-		<ul class="nav global-flex">
+		<ul class="topnav global-flex">
 			<li class="global-flex_item active">收入</li>
 			<li class="global-flex_item">支出</li>
 			<li class="global-flex_item">毛利</li>
 			<li class="global-flex_item">码洋</li>
 		</ul>
+		
+		<div class="top-contents">
+			<div class="top-content_list">
+				<div class="content">
+					<div class="content_c">
+						<div class="content-top clearfix global-flex">
+							<span class="global-flex_item">截止2017/10/27成本情况</span>
+							<span class="change-date">切换时间</span>
+						</div>
+						<div class="total">
+							<p class="total-title">累计成本总金额（元）</p>
+							<p class="total-price">591,090.00</p>
+							<p class="total-sales">总销量5000 平均单商品成本118.2元</p>
+						</div>
 
-		<div class="content">
-			<div class="content_c">
-				<div class="content-top clearfix global-flex">
-					<span class="global-flex_item">截止2017/10/27成本情况</span>
-					<span class="change-date">切换时间</span>
+						<div class="">
+
+						</div>
+					</div>
 				</div>
-				<div class="total">
-					<p class="total-title">累计成本总金额（元）</p>
-					<p class="total-price">591,090.00</p>
-					<p class="total-sales">总销量5000 平均单商品成本118.2元</p>
-				</div>
 
-				<div class="">
-
-				</div>
-			</div>
-		</div>
-
-		<ul class="grids clearfix">
-			<li>
-				<p class="grids-title">现金-成本（元）</p>
-				<p class="grids-price">190,500.00</p>
-				<p class="grids-sales">售出4000件商品</p>
-			</li>
-			<li>
-				<p class="grids-title">汇款-毛利（元）</p>
-				<p class="grids-price">190,500.00</p>
-				<p class="grids-sales">售出4000件商品</p>
-			</li>
-			<li>
-				<p class="grids-title">支付宝-毛利（元）</p>
-				<p class="grids-price">190,500.00</p>
-				<p class="grids-sales">售出4000件商品</p>
-			</li>
-			<li>
-				<p class="grids-title">微信-毛利（元）</p>
-				<p class="grids-price">190,500.00</p>
-				<p class="grids-sales">售出4000件商品</p>
-			</li>
-		</ul>
-
-		<div class="details ">
-			<div class="details-header clearfix">
-				<div class="details-header_text">截止时间<span class="date">2017-10-27</span></div>
-				<ul class="details-header_nav">
-					<li class="active">简表</li>
-					<li>详表</li>
+				<ul class="grids clearfix">
+					<li>
+						<p class="grids-title">现金-成本（元）</p>
+						<p class="grids-price">190,500.00</p>
+						<p class="grids-sales">售出4000件商品</p>
+					</li>
+					<li>
+						<p class="grids-title">汇款-毛利（元）</p>
+						<p class="grids-price">190,500.00</p>
+						<p class="grids-sales">售出4000件商品</p>
+					</li>
+					<li>
+						<p class="grids-title">支付宝-毛利（元）</p>
+						<p class="grids-price">190,500.00</p>
+						<p class="grids-sales">售出4000件商品</p>
+					</li>
+					<li>
+						<p class="grids-title">微信-毛利（元）</p>
+						<p class="grids-price">190,500.00</p>
+						<p class="grids-sales">售出4000件商品</p>
+					</li>
 				</ul>
-			</div>
-			<div class="details-content">
-				<div class="details-content_c">
-					<a href="" class="info">
-						<div class="info-left">
-							<p class="title">2017-10-27售出码洋额</p>
-							<p>售出3200件商品</p>
+
+				<div class="details ">
+					<div class="details-header clearfix">
+						<div class="details-header_text">截止时间<span class="date">2017-10-27</span></div>
+						<ul class="details-header_nav">
+							<li class="active">简表</li>
+							<li>详表</li>
+						</ul>
+					</div>
+					<div class="details-content">
+						<div class="details-content_c">
+							<a href="" class="info">
+								<div class="info-left">
+									<p class="title">2017-10-27售出码洋额</p>
+									<p>售出3200件商品</p>
+								</div>
+								<p class="info-price">￥29.000.00</p>
+							</a>
+							<a href="" class="info">
+								<div class="info-left">
+									<p class="title">2017-10-27售出码洋额</p>
+									<p>售出3200件商品</p>
+								</div>
+								<p class="info-price">￥29.000.00</p>
+							</a>
 						</div>
-						<p class="info-price">￥29.000.00</p>
-					</a>
-					<a href="" class="info">
-						<div class="info-left">
-							<p class="title">2017-10-27售出码洋额</p>
-							<p>售出3200件商品</p>
+						<div class="details-content_c ">
+							
 						</div>
-						<p class="info-price">￥29.000.00</p>
-					</a>
+					</div>
 				</div>
-				<div class="details-content_c ">
-					
+			</div>
+			<div class="top-content_list translateX-100">
+				2
+				<div class="content">
+					<div class="content_c">
+						<div class="content-top clearfix global-flex">
+							<span class="global-flex_item">截止2017/10/27成本情况</span>
+							<span class="change-date">切换时间</span>
+						</div>
+						<div class="total">
+							<p class="total-title">累计成本总金额（元）</p>
+							<p class="total-price">591,090.00</p>
+							<p class="total-sales">总销量5000 平均单商品成本118.2元</p>
+						</div>
+
+						<div class="">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="top-content_list translateX-100">
+				3
+				<div class="content">
+					<div class="content_c">
+						<div class="content-top clearfix global-flex">
+							<span class="global-flex_item">截止2017/10/27成本情况</span>
+							<span class="change-date">切换时间</span>
+						</div>
+						<div class="total">
+							<p class="total-title">累计成本总金额（元）</p>
+							<p class="total-price">591,090.00</p>
+							<p class="total-sales">总销量5000 平均单商品成本118.2元</p>
+						</div>
+
+						<div class="">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="top-content_list translateX-100">
+				4
+				<div class="content">
+					<div class="content_c">
+						<div class="content-top clearfix global-flex">
+							<span class="global-flex_item">截止2017/10/27成本情况</span>
+							<span class="change-date">切换时间</span>
+						</div>
+						<div class="total">
+							<p class="total-title">累计成本总金额（元）</p>
+							<p class="total-price">591,090.00</p>
+							<p class="total-sales">总销量5000 平均单商品成本118.2元</p>
+						</div>
+
+						<div class="">
+
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
+	
+
+	<!-- 详情页面样式 -->
+	<style type="text/css">
+	.details-page{position: absolute;left: 0;width: 100%;height: 100%;top: 0;background: #fff;z-index: 9}
+	.details-page .details-content{height: calc(100% - .62rem); width: 100%; overflow: auto;-webkit-overflow-scrolling: touch;}
+	.details-content_table{white-space: nowrap;}
+	.details-content_table thead{background-color: rgba(0, 0, 0, 1);}
+	.details-content_table thead th{color: #fff;font-size: .16rem;font-weight: 400;padding: 15px 20px;}
+	.details-content_table td{color: #333;font-size: .14rem;padding:20px;}
+	.details-content_table tbody tr{border-bottom:1px solid #eee;}
+	.details-page .details-footer{height: .62rem;position:relative;background-color: rgba(242, 242, 242, 1);}
+	.details-page .footer-screening{line-height: .62rem;color: #fff;width: .59rem;background-color: rgba(0, 0, 0, 0.898039215686275);text-align: center;font-size: .16rem}
+	.details-page .footer-details{align-items: center;padding:0 .15rem;}
+	.details-page .footer-price{font-size: .21rem;font-weight: 700;color: #333}
+	.details-page .sales{font-size: .12rem;margin-top: .05rem}
+	</style>
+
+	
+
+	<!-- 详情页面 -->
+	<div class="details-page ">
+		
+		<div class="details-content c-3">
+			<div class="details-content_c">
+				<table class="details-content_table">
+					<thead>
+						<tr>
+							<th>折扣</th>
+							<th>定价</th>
+							<th>数量</th>
+							<th>书号</th>
+							<th>书本名称</th>
+							<th>批号</th>
+							<th>零售编号</th>
+							<th>出版社</th>
+							<th>站点</th>
+							<th>实洋</th>
+							<th>码洋</th>
+							<th>零售时间</th>
+							<th>成本折扣</th>
+							<th>税率</th>
+							<th>库房</th>
+							<th>商品类别</th>
+							<th>总库存</th>
+							<th>费用</th>
+							<th>结算实洋</th>
+							<th>主货源</th>
+							<th>不含税实洋</th>
+							<th>税额</th>
+							<th>不含税成本</th>
+							<th>成本</th>
+							<th>毛利</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>折扣</td>
+							<td>定价</td>
+							<td>数量</td>
+							<td>书号</td>
+							<td>书本名称</td>
+							<td>批号</td>
+							<td>零售编号</td>
+							<td>出版社</td>
+							<td>站点</td>
+							<td>实洋</td>
+							<td>码洋</td>
+							<td>零售时间</td>
+							<td>成本折扣</td>
+							<td>税率</td>
+							<td>库房</td>
+							<td>商品类别</td>
+							<td>总库存</td>
+							<td>费用</td>
+							<td>结算实洋</td>
+							<td>主货源</td>
+							<td>不含税实洋</td>
+							<td>税额</td>
+							<td>不含税成本</td>
+							<td>成本</td>
+							<td>毛利</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="details-footer global-flex">
+			<div class="footer-screening">筛选</div>
+			<ul class="global-flex footer-details global-flex_item">
+				<li class="global-flex_item">
+					<p class="c-6">2017-10-27收入</p>
+					<p class="c-9 sales">售出4000件商品</p>
+				</li>
+				<li>
+					<p class="footer-price">￥29,000,00</p>
+				</li>
+			</ul>
+		</div>	
+	</div>
+
+	<script type="text/javascript">
+		$('.topnav li').bind('click',function(){
+			var topnav = $('.topnav'),
+				topnav_li = topnav.find('li'),
+				topnav_c = $('.top-contents'),
+				topnav_c_l = topnav_c.find('.top-content_list'),
+				former_index = topnav_li.index(topnav.find('.active')),
+				index = $(this).index();
+
+			if($(this).hasClass('.active')){return false; }
+
+			topnav.find('.active').removeClass('active')
+			$(this).addClass('active');
+
+			if(index > former_index){
+				for(var i=0;i<index;i++){
+					topnav_c_l.eq(i).css({
+						"transform":"translateX(-100%) translateZ(0px)",
+						"-webkit-transform":"translateX(-100%) translateZ(0px)",
+					});
+				}
+				topnav_c_l.eq(index).css({
+					"transform":"translateX(0PX) translateZ(0px)",
+					"-webkit-transform":"translateX(0PX) translateZ(0px)"
+				});
+			}else{
+				for(var i=topnav_li.length;i>index;i--){
+					topnav_c_l.eq(i).css({
+						"transform":"translateX(100%) translateZ(0px)",
+						"-webkit-transform":"translateX(100%) translateZ(0px)"
+					});
+				}
+				topnav_c_l.eq(index).css({
+					"transform":"translateX(0PX) translateZ(0px)",
+					"transform":"translateX(0PX) translateZ(0px)"
+				});
+			}
+
+		})
+
+	</script>
 </body>
 </html>
